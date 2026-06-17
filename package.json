@@ -2,6 +2,14 @@
   "name": "npm-init-publish",
   "description": "CLI to set workspace versions, then publish public, not-yet-published packages to npm — with automatic version restore.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonpai/npm-init-publish.git"
+  },
+  "homepage": "https://github.com/simonpai/npm-init-publish#readme",
+  "bugs": {
+    "url": "https://github.com/simonpai/npm-init-publish/issues"
+  },
   "bin": {
     "npm-init-publish": "cli/index.js"
   },
