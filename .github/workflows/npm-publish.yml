@@ -1,0 +1,32 @@
+name: NPM publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish-npm:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version
+        id: version
+        run: |
+          VERSION=${{ github.event.release.tag_name }}
+          echo "version=$(echo $VERSION | sed -e 's/v//gI')" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm install -g npm@latest
+      - run: npm i
+      - run: npm run version ${{ steps.version.outputs.version }}
+      - run: npm publish --provenance
+        if: "!github.event.release.prerelease"
+      - run: npm publish --provenance --tag beta
+        if: "github.event.release.prerelease"

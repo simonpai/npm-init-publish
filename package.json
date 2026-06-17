@@ -1,0 +1,33 @@
+{
+  "name": "npm-init-publish",
+  "description": "CLI to set workspace versions, then publish public, not-yet-published packages to npm — with automatic version restore.",
+  "type": "module",
+  "bin": {
+    "npm-init-publish": "cli/index.js"
+  },
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "files": [
+    "cli",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "version": "node cli/index.js set-version"
+  },
+  "keywords": [
+    "npm",
+    "publish",
+    "monorepo",
+    "workspaces",
+    "version",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}

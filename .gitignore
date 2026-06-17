@@ -1,0 +1,10 @@
+node_modules/
+package-lock.json
+*.bak
+*.log
+npm-debug.log*
+.npm
+.eslintcache
+.parcel-cache
+.DS_Store
+local/
